@@ -1,0 +1,33 @@
+<div class="page-header"><h1>Hotel </h1></div>
+
+<div class="container">
+    <form ng-submit="ctrl.sendForm()">
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label for="nome" class="control-label">Nome:</label>
+                <input id="nome" class="form-control" name="nome" type="text" ng-model="ctrl.hotel.nome"/>
+            </div>
+            <div class="col-md-6 form-group">
+                <label for="responsavel" class="control-label">Responsável:</label>
+                <input id="responsavel" class="form-control" name="responsavel" type="text"
+                       ng-model="ctrl.hotel.responsavel"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <label for="email" class="control-label">Email:</label>
+                <input id="email" class="form-control" name="email" type="text" ng-model="ctrl.hotel.email"/>
+            </div>
+            <div class="col-md-4 form-group">
+
+                <label for="telefone" class="control-label">Telefone:</label>
+                <input id="telefone" class="form-control" name="telefone" type="text" ng-model="ctrl.hotel.telefone"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <button class="btn btn-primary" type="submit">Salvar dados</button>
+            </div>
+        </div>
+    </form>
+</div>
