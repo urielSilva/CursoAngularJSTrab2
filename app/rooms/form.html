@@ -1,0 +1,38 @@
+<div class="page-header"><h1>Quarto </h1></div>
+
+<div class="container">
+    <form name="form" ng-submit="form.$valid && ctrl.sendForm()" novalidate>
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <label for="nome" class="control-label">Nome:</label>
+                <input id="nome" class="form-control" name="nome" type="text" ng-model="ctrl.room.nome"/>
+            </div>
+            <div class="col-md-4 form-group" ng-class="{'has-error' : ctrl.hasErrors(form,'hotel', 'required')}">
+                <label for="hotel" class="control-label">Hotel:</label>
+                <select required name="hotel" class="form-control" id="hotel" ng-model="ctrl.room.hotel">
+                    <option value="{{key}}" ng-repeat="(key,hotel) in ctrl.hotels">{{hotel.nome}}</option>
+                </select>
+
+                <div class="help-block" ng-show="ctrl.hasErrors(form,'qtdVagas', 'required')">
+                    Hotel obrigatório.
+                </div>
+            </div>
+            <div class="col-md-4 form-group" ng-class="{'has-error' : ctrl.hasErrors(form,'qtdVagas', 'required')}">
+                <label for="qtdVagas" class="control-label">Quantidade de vagas:</label>
+                <input id="qtdVagas" required class="form-control" name="qtdVagas" type="text"
+                       ng-model="ctrl.room.qtdVagas"/>
+
+                <div class="help-block" ng-show="ctrl.hasErrors(form,'qtdVagas', 'required')">
+                    Quantidade de vagas obrigatória.
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="form-group col-md-4">
+                <button ng-click="ctrl.submitted = true" class="btn btn-primary" type="submit">Salvar dados</button>
+            </div>
+        </div>
+    </form>
+</div>

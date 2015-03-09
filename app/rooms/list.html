@@ -1,0 +1,35 @@
+<div class="page-header"><h1>Quartos </h1></div>
+
+<div class="container">
+
+    <a href="#/rooms/add" class="btn btn-primary">Adicionar</a>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Hotel</th>
+            <th>Nome</th>
+            <th>Quantidade de Vagas</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="(key,room) in ctrl.rooms">
+            <td>{{room.hotel.nome}}</td>
+            <td>{{room.nome}}</td>
+            <td>{{room.qtdVagas}}</td>
+            <td>
+                <a href="" title="Remover Quarto" ng-click="ctrl.removerQuarto(key)">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </a>
+                <a href="#/rooms/edit/{{key}}" title="Editar Quarto">
+                    <span class="glyphicon glyphicon-edit"></span>
+                </a>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

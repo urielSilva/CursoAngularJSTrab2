@@ -1,32 +1,48 @@
 <div class="page-header"><h1>Hotel </h1></div>
 
 <div class="container">
-    <form ng-submit="ctrl.sendForm()">
+    <form name="form" ng-submit="form.$valid && ctrl.sendForm()" novalidate>
         <div class="row">
-            <div class="col-md-6 form-group">
+            <div class="col-md-6 form-group" ng-class="{'has-error' : ctrl.hasErrors(form,'nome', 'required')}">
                 <label for="nome" class="control-label">Nome:</label>
-                <input id="nome" class="form-control" name="nome" type="text" ng-model="ctrl.hotel.nome"/>
+                <input id="nome" required class="form-control" name="nome" type="text" ng-model="ctrl.hotel.nome"/>
+
+                <div class="help-block" ng-show="ctrl.hasErrors(form,'nome', 'required')">
+                    Nome obrigatório.
+                </div>
             </div>
-            <div class="col-md-6 form-group">
+            <div class="col-md-6 form-group" ng-class="{'has-error' : ctrl.hasErrors(form,'responsavel', 'required')}">
                 <label for="responsavel" class="control-label">Responsável:</label>
-                <input id="responsavel" class="form-control" name="responsavel" type="text"
+                <input id="responsavel" required class="form-control" name="responsavel" type="text"
                        ng-model="ctrl.hotel.responsavel"/>
+
+                <div class="help-block" ng-show="ctrl.hasErrors(form,'nome', 'required')">
+                    Responsável obrigatório.
+                </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4 form-group">
+            <div class="col-md-4 form-group"  ng-class="{'has-error' : ctrl.hasErrors(form,'email', 'email')}">
                 <label for="email" class="control-label">Email:</label>
-                <input id="email" class="form-control" name="email" type="text" ng-model="ctrl.hotel.email"/>
+                <input id="email" class="form-control" name="email" type="email" ng-model="ctrl.hotel.email"/>
+                <div class="help-block" ng-show="ctrl.hasErrors(form,'email', 'email')">
+                    O campo deve ser do tipo email.
+                </div>
             </div>
-            <div class="col-md-4 form-group">
+            <div class="col-md-4 form-group" ng-class="{'has-error' : ctrl.hasErrors(form,'telefone', 'required')}">
 
                 <label for="telefone" class="control-label">Telefone:</label>
-                <input id="telefone" class="form-control" name="telefone" type="text" ng-model="ctrl.hotel.telefone"/>
+                <input id="telefone" mask="(00) 0000-0000" class="form-control" required name="telefone" type="text"
+                       ng-model="ctrl.hotel.telefone"/>
+
+                <div class="help-block" ng-show="ctrl.hasErrors(form,'nome', 'required')">
+                    Telefone obrigatório.
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="form-group col-md-4">
-                <button class="btn btn-primary" type="submit">Salvar dados</button>
+                <button ng-click="ctrl.submitted = true" class="btn btn-primary" type="submit">Salvar dados</button>
             </div>
         </div>
     </form>

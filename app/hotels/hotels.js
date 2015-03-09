@@ -60,4 +60,10 @@ angular.module('enejApp')
                 });
             }
         }
+
+        self.hasErrors = function(form,field,validation) {
+            return this.submitted && form[field].$error[validation];
+        }
+
+        self.submitted = false;
     });
